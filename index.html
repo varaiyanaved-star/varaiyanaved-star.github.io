@@ -23,16 +23,24 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        .card-modern {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-modern:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
         .btn-whatsapp {
             background-color: #25D366;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
             transition: all 0.3s ease;
         }
 
         .btn-whatsapp:hover {
             background-color: #20ba5a;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transform: scale(1.05);
         }
 
         .pulse-green {
@@ -44,6 +52,13 @@
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-anim { animation: float 4s ease-in-out infinite; }
     </style>
 </head>
 <body class="bg-[#0f1115] text-gray-100">
@@ -52,52 +67,102 @@
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <span class="text-2xl">🚕</span>
-                <span class="text-xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 uppercase">
-                    Lal Bhai Taxi
+                <span class="text-xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                    LAL BHAI TAXI
                 </span>
             </div>
-            <a href="tel:9925063614" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-full text-sm font-bold transition-all">
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+                <a href="#home" class="hover:text-white transition-colors">Home</a>
+                <a href="#estimator" class="hover:text-white transition-colors">Price Estimator</a>
+                <a href="#services" class="hover:text-white transition-colors">Fleet</a>
+            </div>
+            <a href="tel:9925063614" class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all">
                 Call Now
             </a>
         </div>
     </nav>
 
-    <section id="home" class="mesh-gradient pt-40 pb-24 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">Your Premium Ride,<br><span class="text-indigo-400">Anytime.</span></h1>
-            <p class="text-gray-400 text-lg mb-10">Safe, reliable, and professional taxi service in Ahmedabad. Book in seconds.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="tel:9925063614" class="bg-white text-black px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-200 transition-all flex items-center gap-2">
-                    📞 Call 9925063614
-                </a>
-                <a href="https://wa.me/9925063614?text=Hi, I want to book a taxi." target="_blank" class="btn-whatsapp text-white px-8 py-4 rounded-2xl font-bold text-lg flex items-center gap-2">
-                    💬 WhatsApp Us
+    <section id="home" class="mesh-gradient pt-40 pb-32 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-bold tracking-widest text-indigo-300 uppercase mb-6">
+                    Available 24/7 Across the City
+                </span>
+                <h1 class="text-6xl lg:text-7xl font-extrabold mb-8 leading-[1.1]">
+                    Premium Travel <br>
+                    <span class="text-indigo-400 italic">Redefined.</span>
+                </h1>
+                <p class="text-lg text-gray-400 mb-10 max-w-lg leading-relaxed">
+                    Experience seamless transportation with Lal Bhai. Professional drivers, pristine vehicles, and unbeatable reliability since 2014.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="tel:9925063614" class="bg-white text-black px-10 py-4 rounded-2xl font-bold text-center hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
+                        <span>Book Instant Ride</span>
+                    </a>
+                    <a href="https://wa.me/9925063614?text=Hi, I would like to book a taxi." target="_blank" class="btn-whatsapp text-white px-10 py-4 rounded-2xl font-bold text-center flex items-center justify-center gap-2">
+                        WhatsApp Us
+                    </a>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-3xl border border-white/10 float-anim">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="p-2 bg-indigo-500/20 rounded-lg text-indigo-400 text-sm">PROMO</span>
+                    Standard Outstation
+                </h3>
+                <div class="space-y-4 mb-8">
+                    <div class="flex justify-between items-center p-4 bg-white/5 rounded-xl border border-white/5">
+                        <span class="text-gray-400">Base Package (80km)</span>
+                        <span class="text-2xl font-bold text-white">₹1900</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-white/5 rounded-xl border border-white/5">
+                            <span class="text-xs text-gray-500 block mb-1">Extra KM</span>
+                            <span class="text-lg font-bold">₹12/km</span>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-xl border border-white/5">
+                            <span class="text-xs text-gray-500 block mb-1">Extra Hour</span>
+                            <span class="text-lg font-bold">₹120/hr</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="tel:9925063614" class="w-full bg-indigo-600 hover:bg-indigo-500 py-5 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 transition-all shadow-xl shadow-indigo-900/20">
+                    <span class="text-xl">📞</span> Tap to Dial Now
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="estimator" class="py-20 px-6 bg-[#0c0d11]">
+    <section class="py-12 border-y border-white/10 bg-white/5 text-center">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div><p class="text-3xl font-bold">10Y+</p><p class="text-gray-500 text-sm">Experience</p></div>
+            <div><p class="text-3xl font-bold">24/7</p><p class="text-gray-500 text-sm">Support</p></div>
+            <div><p class="text-3xl font-bold">100%</p><p class="text-gray-500 text-sm">Verified</p></div>
+            <div><p class="text-3xl font-bold">5.0</p><p class="text-gray-500 text-sm">Rating</p></div>
+        </div>
+    </section>
+
+    <section id="estimator" class="py-24 px-6 bg-[#0c0d11]">
         <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-4 italic">Fare Estimator</h2>
+                <p class="text-gray-400">Enter distance to see your estimated price.</p>
+            </div>
             <div class="glass p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl">
-                <h2 class="text-3xl font-bold mb-8 text-center">Fare Estimator</h2>
-                
-                <div class="mb-8">
-                    <label class="block text-xs font-bold text-indigo-400 uppercase tracking-widest mb-4 text-center">Approximate Distance (KM)</label>
+                <div class="mb-10 text-center">
+                    <label class="block text-xs font-bold text-indigo-400 uppercase tracking-widest mb-4">Total Trip Distance (KM)</label>
                     <input id="manual-km" type="number" placeholder="Enter KM" 
                         class="w-full bg-white/5 border-2 border-white/10 rounded-2xl px-6 py-5 text-4xl font-black text-center focus:outline-none focus:border-indigo-500 transition-all text-white">
                 </div>
-
-                <button onclick="calculateManualFare()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-5 rounded-2xl transition-all shadow-lg mb-8">
+                <button onclick="calculateFare()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-5 rounded-2xl transition-all shadow-lg mb-8">
                     ✨ Calculate Price
                 </button>
 
                 <div id="fare-result" class="hidden border-t border-white/10 pt-8 text-center animate-fade-in">
                     <div class="bg-indigo-600/10 px-10 py-6 rounded-3xl border border-indigo-500/20 mb-8">
-                        <p class="text-indigo-400 text-xs font-bold uppercase mb-1">Estimated Fare</p>
+                        <p class="text-indigo-400 text-xs font-bold uppercase mb-1 tracking-widest">Estimated Fare</p>
                         <p id="res-price" class="text-6xl font-black text-white">₹0</p>
                     </div>
-                    
                     <div class="flex flex-col gap-4">
                         <a id="wa-dynamic-btn" href="https://wa.me/9925063614" target="_blank" class="btn-whatsapp text-white px-10 py-5 rounded-2xl font-black text-xl flex items-center justify-center gap-3 pulse-green">
                             💬 Book via WhatsApp
@@ -105,6 +170,53 @@
                         <a href="tel:9925063614" class="bg-white text-black px-10 py-5 rounded-2xl font-black text-xl flex items-center justify-center gap-3">
                             📞 Call to Confirm
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="assistant" class="py-24 px-6 bg-[#0f1115]">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-4 italic">Smart Assistant</h2>
+                <p class="text-gray-400">Let us recommend the best car for you.</p>
+            </div>
+            <div class="glass p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
+                <div id="step1">
+                    <h3 class="text-xl font-semibold mb-8 flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-sm font-bold shadow-lg shadow-indigo-500/30">1</span>
+                        Choose trip type
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <button onclick="setTrip('local')" class="p-8 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-indigo-500 transition-all text-left">
+                            <div class="text-4xl mb-3">🏙️</div>
+                            <div class="text-lg font-bold">Local City Trip</div>
+                        </button>
+                        <button onclick="setTrip('outstation')" class="p-8 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-indigo-500 transition-all text-left">
+                            <div class="text-4xl mb-3">🛣️</div>
+                            <div class="text-lg font-bold">Outstation / Airport</div>
+                        </button>
+                    </div>
+                </div>
+                <div id="step2" class="hidden">
+                    <button onclick="goBack(1)" class="text-indigo-400 text-sm mb-6">← Back</button>
+                    <h3 class="text-xl font-semibold mb-8 flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-sm font-bold">2</span>
+                        How many passengers?
+                    </h3>
+                    <div class="grid grid-cols-3 gap-4">
+                        <button onclick="setPass(2)" class="p-6 rounded-2xl border border-white/5 bg-white/5 hover:border-indigo-500 transition-all font-bold">1-2</button>
+                        <button onclick="setPass(4)" class="p-6 rounded-2xl border border-white/5 bg-white/5 hover:border-indigo-500 transition-all font-bold">3-4</button>
+                        <button onclick="setPass(6)" class="p-6 rounded-2xl border border-white/5 bg-white/5 hover:border-indigo-500 transition-all font-bold">5-7</button>
+                    </div>
+                </div>
+                <div id="result" class="hidden text-center py-4">
+                    <h3 id="car-name" class="text-4xl font-black mb-4 italic">--</h3>
+                    <p id="car-desc" class="text-gray-400 mb-10 max-w-sm mx-auto">--</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="tel:9925063614" class="bg-white text-black px-10 py-4 rounded-2xl font-black text-lg">📞 Call Now</a>
+                        <button onclick="resetAssistant()" class="px-8 py-4 rounded-2xl border border-white/10 text-sm font-bold">Restart</button>
                     </div>
                 </div>
             </div>
@@ -121,39 +233,72 @@
     </div>
 
     <footer class="bg-black py-16 px-6 text-center border-t border-white/5">
-        <p class="text-gray-600 text-sm uppercase tracking-widest">© 2026 Lal Bhai Taxi Service. Ahmedabad.</p>
+        <p class="text-gray-600 text-xs uppercase tracking-widest">© 2026 Lal Bhai Taxi Service. Ahmedabad.</p>
     </footer>
 
     <script>
-        function calculateManualFare() {
-            const kmInput = document.getElementById('manual-km').value;
+        function calculateFare() {
+            const km = parseFloat(document.getElementById('manual-km').value);
             const resPrice = document.getElementById('res-price');
             const resultDiv = document.getElementById('fare-result');
-            const waDynamicBtn = document.getElementById('wa-dynamic-btn');
+            const waBtn = document.getElementById('wa-dynamic-btn');
 
-            if (!kmInput || kmInput <= 0) {
-                alert("Please enter a valid distance in KM.");
+            if (!km || km <= 0) {
+                alert("Please enter KM");
                 return;
             }
 
-            const km = parseFloat(kmInput);
             const baseKm = 80;
             const basePrice = 1900;
             const extraPerKm = 12;
 
-            let totalFare = (km <= baseKm) ? basePrice : basePrice + ((km - baseKm) * extraPerKm);
-            totalFare = Math.round(totalFare);
+            let total = (km <= baseKm) ? basePrice : basePrice + ((km - baseKm) * extraPerKm);
+            total = Math.round(total);
 
-            // Update UI
-            resPrice.innerText = "₹" + totalFare;
+            resPrice.innerText = "₹" + total;
             resultDiv.classList.remove('hidden');
 
-            // Generate WhatsApp Link with details
-            const message = `Hello Lal Bhai Taxi, I want to book a ride for approximately ${km} KM. The fare shown is ₹${totalFare}. Please confirm booking.`;
-            waDynamicBtn.href = `https://wa.me/9925063614?text=${encodeURIComponent(message)}`;
+            const message = encodeURIComponent(`Hi Lal Bhai Taxi, I want to book a ride for ${km} KM. Fare: ₹${total}.`);
+            waBtn.href = `https://wa.me/9925063614?text=${message}`;
             
-            // Scroll to show results
             resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Assistant Logic
+        let tripType = '';
+        function setTrip(type) {
+            tripType = type;
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }
+
+        function setPass(num) {
+            document.getElementById('step2').classList.add('hidden');
+            const result = document.getElementById('result');
+            result.classList.remove('hidden');
+            const carName = document.getElementById('car-name');
+            const carDesc = document.getElementById('car-desc');
+
+            if (num > 4) {
+                carName.innerText = "Premium SUV";
+                carDesc.innerText = "Spacious 7-seater for large groups.";
+            } else if (tripType === 'outstation') {
+                carName.innerText = "Comfort Sedan";
+                carDesc.innerText = "Best for highway and long trips.";
+            } else {
+                carName.innerText = "Economy Hatchback";
+                carDesc.innerText = "Perfect for city traffic.";
+            }
+        }
+
+        function goBack(step) {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
+        }
+
+        function resetAssistant() {
+            document.getElementById('result').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
         }
     </script>
 </body>
