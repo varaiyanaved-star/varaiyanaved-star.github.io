@@ -57,8 +57,8 @@
             </div>
             <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
                 <a href="#home" class="hover:text-white transition-colors">Home</a>
-                <a href="#services" class="hover:text-white transition-colors">Services</a>
-                <a href="#about" class="hover:text-white transition-colors">Experience</a>
+                <a href="#assistant" class="hover:text-white transition-colors">Ride Assistant</a>
+                <a href="#services" class="hover:text-white transition-colors">Fleet</a>
             </div>
             <a href="tel:9925063614" class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all btn-glow">
                 Call Now
@@ -83,8 +83,8 @@
                     <a href="tel:9925063614" class="bg-white text-black px-10 py-4 rounded-2xl font-bold text-center hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
                         <span>Book Instant Ride</span>
                     </a>
-                    <a href="#services" class="glass px-10 py-4 rounded-2xl font-bold text-center hover:bg-white/10 transition-all border border-white/20">
-                        View Rates
+                    <a href="#assistant" class="glass px-10 py-4 rounded-2xl font-bold text-center hover:bg-white/10 transition-all border border-white/20">
+                        Help Me Choose
                     </a>
                 </div>
             </div>
@@ -126,15 +126,82 @@
         </div>
     </section>
 
+    <section id="assistant" class="py-24 px-6 bg-[#0c0d11]">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-4 italic">Smart Assistant</h2>
+                <p class="text-gray-400">Can't decide? Let us recommend the perfect vehicle for you.</p>
+            </div>
+
+            <div class="glass p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
+                <div id="step1">
+                    <h3 class="text-xl font-semibold mb-8 flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-sm font-bold shadow-lg shadow-indigo-500/30">1</span>
+                        Choose your trip type
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <button onclick="setTrip('local')" class="p-8 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-indigo-500 transition-all text-left group">
+                            <div class="text-4xl mb-3 group-hover:scale-110 transition-transform">🏙️</div>
+                            <div class="text-lg font-bold">Local City Trip</div>
+                            <div class="text-sm text-gray-500">Fast, local commutes & errands</div>
+                        </button>
+                        <button onclick="setTrip('outstation')" class="p-8 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-indigo-500 transition-all text-left group">
+                            <div class="text-4xl mb-3 group-hover:scale-110 transition-transform">🛣️</div>
+                            <div class="text-lg font-bold">Outstation / Airport</div>
+                            <div class="text-sm text-gray-500">Long distance & comfort focus</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="step2" class="hidden">
+                    <button onclick="goBack(1)" class="text-indigo-400 text-sm mb-6 hover:text-indigo-300 transition-colors">← Back to Trip Type</button>
+                    <h3 class="text-xl font-semibold mb-8 flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-sm font-bold">2</span>
+                        How many passengers?
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <button onclick="setPass(2)" class="p-6 rounded-2xl border border-white/5 bg-white/5 hover:border-indigo-500 transition-all">
+                            <div class="text-2xl font-bold">1-2</div>
+                        </button>
+                        <button onclick="setPass(4)" class="p-6 rounded-2xl border border-white/5 bg-white/5 hover:border-indigo-500 transition-all">
+                            <div class="text-2xl font-bold">3-4</div>
+                        </button>
+                        <button onclick="setPass(6)" class="p-6 rounded-2xl border border-white/5 bg-white/5 hover:border-indigo-500 transition-all">
+                            <div class="text-2xl font-bold">5-7</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="result" class="hidden text-center py-4">
+                    <div class="inline-block px-4 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-bold mb-6">MATCH FOUND</div>
+                    <h3 id="car-name" class="text-4xl font-black mb-4 text-white italic tracking-tight">--</h3>
+                    <p id="car-desc" class="text-gray-400 mb-10 max-w-sm mx-auto">--</p>
+                    
+                    <div class="bg-indigo-600/10 rounded-3xl p-8 mb-10 border border-indigo-500/20 max-w-xs mx-auto">
+                        <span class="text-xs uppercase tracking-widest text-indigo-400 font-bold">Estimated Base Fare</span>
+                        <div id="car-price" class="text-4xl font-black text-white mt-1">--</div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="tel:9925063614" class="bg-white text-black px-12 py-4 rounded-2xl font-black text-lg hover:scale-105 transition-transform flex items-center justify-center gap-2">
+                            📞 Confirm via Call
+                        </a>
+                        <button onclick="resetAssistant()" class="px-8 py-4 rounded-2xl border border-white/10 hover:bg-white/5 transition-all text-sm font-bold">Restart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="services" class="py-32 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                 <div>
                     <h2 class="text-4xl font-bold mb-4">Our Fleet</h2>
-                    <p class="text-gray-400">Select the perfect comfort level for your journey.</p>
+                    <p class="text-gray-400">Select the perfect comfort level manually.</p>
                 </div>
                 <a href="tel:9925063614" class="text-indigo-400 font-semibold hover:text-indigo-300 transition-colors flex items-center gap-2">
-                    Inquire about custom fleets <span>→</span>
+                    Custom fleet inquiry <span>→</span>
                 </a>
             </div>
             
@@ -142,23 +209,23 @@
                 <div class="card-modern glass p-10 rounded-[2rem] border border-white/5">
                     <div class="text-5xl mb-8">🚗</div>
                     <h3 class="text-2xl font-bold mb-4">Economy Class</h3>
-                    <p class="text-gray-500 leading-relaxed mb-8">Perfect for daily commutes and solo city travel. Quick, clean, and cost-effective.</p>
-                    <a href="tel:9925063614" class="block w-full text-center py-3 rounded-xl border border-white/10 hover:bg-white hover:text-black transition-all font-bold">Select Economy</a>
+                    <p class="text-gray-500 leading-relaxed mb-8">Perfect for daily commutes. Quick, clean, and cost-effective.</p>
+                    <a href="tel:9925063614" class="block w-full text-center py-3 rounded-xl border border-white/10 hover:bg-white hover:text-black transition-all font-bold">Call for Economy</a>
                 </div>
                 
                 <div class="card-modern bg-indigo-600/10 p-10 rounded-[2rem] border border-indigo-500/30 relative overflow-hidden">
                     <div class="absolute top-5 right-5 bg-indigo-500 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">Popular</div>
                     <div class="text-5xl mb-8">🚙</div>
                     <h3 class="text-2xl font-bold mb-4 text-indigo-300">Comfort Plus</h3>
-                    <p class="text-gray-400 leading-relaxed mb-8">Extra legroom and climate control for small families or long-distance highway trips.</p>
-                    <a href="tel:9925063614" class="block w-full text-center py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 transition-all font-bold">Select Comfort</a>
+                    <p class="text-gray-400 leading-relaxed mb-8">Extra space for families or highway trips.</p>
+                    <a href="tel:9925063614" class="block w-full text-center py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 transition-all font-bold">Call for Comfort</a>
                 </div>
 
                 <div class="card-modern glass p-10 rounded-[2rem] border border-white/5">
                     <div class="text-5xl mb-8">🚘</div>
                     <h3 class="text-2xl font-bold mb-4">Executive</h3>
-                    <p class="text-gray-500 leading-relaxed mb-8">Premium sedans for business meetings and airport transfers with elite-tier drivers.</p>
-                    <a href="tel:9925063614" class="block w-full text-center py-3 rounded-xl border border-white/10 hover:bg-white hover:text-black transition-all font-bold">Select Executive</a>
+                    <p class="text-gray-500 leading-relaxed mb-8">Premium sedans for business and airport transfers.</p>
+                    <a href="tel:9925063614" class="block w-full text-center py-3 rounded-xl border border-white/10 hover:bg-white hover:text-black transition-all font-bold">Call for Executive</a>
                 </div>
             </div>
         </div>
@@ -168,7 +235,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-20 mb-20">
                 <div>
-                    <h2 class="text-5xl font-bold mb-8">Ready to go?</h2>
+                    <h2 class="text-5xl font-bold mb-8 italic">Ready to go?</h2>
                     <p class="text-gray-500 text-xl mb-10">We’re standing by to pick you up. One tap is all it takes.</p>
                     <a href="tel:9925063614" class="inline-flex items-center gap-4 bg-white text-black px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition-transform">
                         📞 9925063614
@@ -180,7 +247,6 @@
                         <ul class="space-y-4 text-gray-500 text-sm">
                             <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
                             <li><a href="#" class="hover:text-white transition-colors">Safety</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors">Business</a></li>
                         </ul>
                     </div>
                     <div>
@@ -193,11 +259,7 @@
                 </div>
             </div>
             <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between gap-4 text-gray-600 text-xs uppercase tracking-widest">
-                <p>© 2026 Lal Bhai Taxi Service. Designed for speed.</p>
-                <div class="flex gap-6">
-                    <span class="hover:text-white cursor-pointer">Instagram</span>
-                    <span class="hover:text-white cursor-pointer">WhatsApp</span>
-                </div>
+                <p>© 2026 Lal Bhai Taxi Service.</p>
             </div>
         </div>
     </footer>
@@ -207,19 +269,57 @@
     </a>
 
     <script>
-        // Smooth scroll for all anchor links
+        // Assistant Logic
+        let tripType = '';
+        function setTrip(type) {
+            tripType = type;
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }
+
+        function setPass(num) {
+            document.getElementById('step2').classList.add('hidden');
+            const result = document.getElementById('result');
+            result.classList.remove('hidden');
+
+            const carName = document.getElementById('car-name');
+            const carDesc = document.getElementById('car-desc');
+            const carPrice = document.getElementById('car-price');
+
+            if (num > 4) {
+                carName.innerText = "Premium SUV (Innova/Ertiga)";
+                carDesc.innerText = "Maximum comfort for groups of 6-7 with spacious trunk space.";
+                carPrice.innerText = "₹2500";
+            } else if (tripType === 'outstation') {
+                carName.innerText = "Sedan (Dzire/Etios)";
+                carDesc.innerText = "Perfect for long distances with dedicated trunk for bags and full AC.";
+                carPrice.innerText = "₹1900";
+            } else {
+                carName.innerText = "Compact Hatchback";
+                carDesc.innerText = "Swift and agile, ideal for solo city trips and avoiding traffic.";
+                carPrice.innerText = "₹1200";
+            }
+        }
+
+        function goBack(step) {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
+        }
+
+        function resetAssistant() {
+            document.getElementById('result').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
+        }
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
                 if(targetId === '#') return;
-                
                 e.preventDefault();
                 const target = document.querySelector(targetId);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
