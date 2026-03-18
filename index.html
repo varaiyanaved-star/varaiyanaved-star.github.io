@@ -73,7 +73,8 @@
             </div>
             <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
                 <a href="#home" class="hover:text-white transition-colors">Home</a>
-                <a href="#estimator" class="hover:text-white transition-colors">Price Estimator</a>
+                <a href="#estimator" class="hover:text-white transition-colors">Estimator</a>
+                <a href="#assistant" class="hover:text-white transition-colors">Assistant</a>
                 <a href="#services" class="hover:text-white transition-colors">Fleet</a>
             </div>
             <a href="tel:9925063614" class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all">
@@ -96,10 +97,10 @@
                     Experience seamless transportation with Lal Bhai. Professional drivers, pristine vehicles, and unbeatable reliability since 2014.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="tel:9925063614" class="bg-white text-black px-10 py-4 rounded-2xl font-bold text-center hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
+                    <a href="tel:9925063614" class="bg-white text-black px-10 py-4 rounded-2xl font-bold text-center hover:bg-gray-200 transition-all flex items-center justify-center gap-2 shadow-xl">
                         <span>Book Instant Ride</span>
                     </a>
-                    <a href="https://wa.me/9925063614?text=Hi, I would like to book a taxi." target="_blank" class="btn-whatsapp text-white px-10 py-4 rounded-2xl font-bold text-center flex items-center justify-center gap-2">
+                    <a href="https://wa.me/9925063614?text=Hi, I would like to book a taxi." target="_blank" class="btn-whatsapp text-white px-10 py-4 rounded-2xl font-bold text-center flex items-center justify-center gap-2 shadow-xl">
                         WhatsApp Us
                     </a>
                 </div>
@@ -107,8 +108,7 @@
 
             <div class="glass p-8 rounded-3xl border border-white/10 float-anim">
                 <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-                    <span class="p-2 bg-indigo-500/20 rounded-lg text-indigo-400 text-sm">PROMO</span>
-                    Standard Outstation
+                    <span class="p-2 bg-indigo-500/20 rounded-lg text-indigo-400 text-sm uppercase">Standard Fare</span>
                 </h3>
                 <div class="space-y-4 mb-8">
                     <div class="flex justify-between items-center p-4 bg-white/5 rounded-xl border border-white/5">
@@ -116,11 +116,11 @@
                         <span class="text-2xl font-bold text-white">₹1900</span>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-white/5 rounded-xl border border-white/5">
+                        <div class="p-4 bg-white/5 rounded-xl border border-white/5 text-center">
                             <span class="text-xs text-gray-500 block mb-1">Extra KM</span>
                             <span class="text-lg font-bold">₹12/km</span>
                         </div>
-                        <div class="p-4 bg-white/5 rounded-xl border border-white/5">
+                        <div class="p-4 bg-white/5 rounded-xl border border-white/5 text-center">
                             <span class="text-xs text-gray-500 block mb-1">Extra Hour</span>
                             <span class="text-lg font-bold">₹120/hr</span>
                         </div>
@@ -146,7 +146,7 @@
         <div class="max-w-2xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-5xl font-extrabold mb-4 italic">Fare Estimator</h2>
-                <p class="text-gray-400">Enter distance to see your estimated price.</p>
+                <p class="text-gray-400 text-lg">Instant pricing for your custom distance.</p>
             </div>
             <div class="glass p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl">
                 <div class="mb-10 text-center">
@@ -160,7 +160,7 @@
 
                 <div id="fare-result" class="hidden border-t border-white/10 pt-8 text-center animate-fade-in">
                     <div class="bg-indigo-600/10 px-10 py-6 rounded-3xl border border-indigo-500/20 mb-8">
-                        <p class="text-indigo-400 text-xs font-bold uppercase mb-1 tracking-widest">Estimated Fare</p>
+                        <p class="text-indigo-400 text-xs font-bold uppercase mb-1 tracking-widest">Estimated Total Fare</p>
                         <p id="res-price" class="text-6xl font-black text-white">₹0</p>
                     </div>
                     <div class="flex flex-col gap-4">
@@ -179,49 +179,92 @@
     <section id="assistant" class="py-24 px-6 bg-[#0f1115]">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-5xl font-extrabold mb-4 italic">Smart Assistant</h2>
-                <p class="text-gray-400">Let us recommend the best car for you.</p>
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-4 italic uppercase tracking-tighter">Smart Assistant</h2>
+                <p class="text-gray-400 text-lg">Unsure? Let us find the best ride for your group.</p>
             </div>
-            <div class="glass p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden">
+            <div class="glass p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden min-h-[400px]">
                 <div id="step1">
                     <h3 class="text-xl font-semibold mb-8 flex items-center gap-3">
                         <span class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-sm font-bold shadow-lg shadow-indigo-500/30">1</span>
-                        Choose trip type
+                        Choose Trip Type
                     </h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <button onclick="setTrip('local')" class="p-8 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-indigo-500 transition-all text-left">
-                            <div class="text-4xl mb-3">🏙️</div>
+                        <button onclick="setTrip('local')" class="p-8 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-indigo-500 transition-all text-left group">
+                            <div class="text-4xl mb-3 group-hover:scale-110 transition-transform">🏙️</div>
                             <div class="text-lg font-bold">Local City Trip</div>
                         </button>
-                        <button onclick="setTrip('outstation')" class="p-8 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-indigo-500 transition-all text-left">
-                            <div class="text-4xl mb-3">🛣️</div>
+                        <button onclick="setTrip('outstation')" class="p-8 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 hover:border-indigo-500 transition-all text-left group">
+                            <div class="text-4xl mb-3 group-hover:scale-110 transition-transform">🛣️</div>
                             <div class="text-lg font-bold">Outstation / Airport</div>
                         </button>
                     </div>
                 </div>
                 <div id="step2" class="hidden">
-                    <button onclick="goBack(1)" class="text-indigo-400 text-sm mb-6">← Back</button>
+                    <button onclick="goBack(1)" class="text-indigo-400 text-sm mb-6 font-bold uppercase tracking-widest">← Back</button>
                     <h3 class="text-xl font-semibold mb-8 flex items-center gap-3">
                         <span class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-sm font-bold">2</span>
-                        How many passengers?
+                        Number of Passengers?
                     </h3>
-                    <div class="grid grid-cols-3 gap-4">
-                        <button onclick="setPass(2)" class="p-6 rounded-2xl border border-white/5 bg-white/5 hover:border-indigo-500 transition-all font-bold">1-2</button>
-                        <button onclick="setPass(4)" class="p-6 rounded-2xl border border-white/5 bg-white/5 hover:border-indigo-500 transition-all font-bold">3-4</button>
-                        <button onclick="setPass(6)" class="p-6 rounded-2xl border border-white/5 bg-white/5 hover:border-indigo-500 transition-all font-bold">5-7</button>
+                    <div class="grid grid-cols-3 gap-6">
+                        <button onclick="setPass(2)" class="p-6 rounded-2xl border border-white/5 bg-white/5 hover:border-indigo-500 transition-all font-bold text-2xl">1-2</button>
+                        <button onclick="setPass(4)" class="p-6 rounded-2xl border border-white/5 bg-white/5 hover:border-indigo-500 transition-all font-bold text-2xl">3-4</button>
+                        <button onclick="setPass(6)" class="p-6 rounded-2xl border border-white/5 bg-white/5 hover:border-indigo-500 transition-all font-bold text-2xl">5-7</button>
                     </div>
                 </div>
-                <div id="result" class="hidden text-center py-4">
-                    <h3 id="car-name" class="text-4xl font-black mb-4 italic">--</h3>
-                    <p id="car-desc" class="text-gray-400 mb-10 max-w-sm mx-auto">--</p>
+                <div id="result" class="hidden text-center py-6">
+                    <div class="inline-block px-4 py-1 bg-green-500/20 text-green-400 rounded-full text-xs font-bold mb-6 tracking-widest">MATCH FOUND</div>
+                    <h3 id="car-name" class="text-4xl md:text-5xl font-black mb-4 italic text-white">--</h3>
+                    <p id="car-desc" class="text-gray-400 mb-10 max-w-sm mx-auto leading-relaxed">--</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="tel:9925063614" class="bg-white text-black px-10 py-4 rounded-2xl font-black text-lg">📞 Call Now</a>
-                        <button onclick="resetAssistant()" class="px-8 py-4 rounded-2xl border border-white/10 text-sm font-bold">Restart</button>
+                        <a href="tel:9925063614" class="bg-white text-black px-12 py-4 rounded-2xl font-black text-lg shadow-xl">📞 Call Now</a>
+                        <button onclick="resetAssistant()" class="px-8 py-4 rounded-2xl border border-white/10 text-sm font-bold hover:bg-white/5 transition-all">Restart</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="services" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center italic tracking-tighter">Our Luxury Fleet</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-modern glass p-10 rounded-[2.5rem] border border-white/5">
+                    <div class="text-5xl mb-8">🚗</div>
+                    <h3 class="text-2xl font-bold mb-4">Economy Class</h3>
+                    <p class="text-gray-500 leading-relaxed mb-8">Quick, clean, and cost-effective for daily city travel.</p>
+                    <a href="tel:9925063614" class="block w-full text-center py-4 rounded-xl border border-white/10 hover:bg-white hover:text-black transition-all font-bold">Call for Hatchback</a>
+                </div>
+                
+                <div class="card-modern bg-indigo-600/10 p-10 rounded-[2.5rem] border border-indigo-500/30 relative overflow-hidden">
+                    <div class="absolute top-5 right-5 bg-indigo-500 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">Most Popular</div>
+                    <div class="text-5xl mb-8">🚙</div>
+                    <h3 class="text-2xl font-bold mb-4 text-indigo-300">Comfort Plus</h3>
+                    <p class="text-gray-400 leading-relaxed mb-8">Spacious sedans for highway travel and outstation trips.</p>
+                    <a href="tel:9925063614" class="block w-full text-center py-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 transition-all font-bold">Call for Sedan</a>
+                </div>
+
+                <div class="card-modern glass p-10 rounded-[2.5rem] border border-white/5">
+                    <div class="text-5xl mb-8">🚘</div>
+                    <h3 class="text-2xl font-bold mb-4">Executive SUV</h3>
+                    <p class="text-gray-500 leading-relaxed mb-8">Premium SUVs for large families and heavy luggage.</p>
+                    <a href="tel:9925063614" class="block w-full text-center py-4 rounded-xl border border-white/10 hover:bg-white hover:text-black transition-all font-bold">Call for SUV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-20 px-6 border-t border-white/5 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-10 italic">Your reliable partner.</h2>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+            <a href="tel:9925063614" class="bg-white text-black px-12 py-5 rounded-2xl font-black text-xl shadow-xl hover:scale-105 transition-transform">
+                📞 9925063614
+            </a>
+            <a href="https://wa.me/9925063614" target="_blank" class="bg-[#25D366] text-white px-12 py-5 rounded-2xl font-black text-xl shadow-xl hover:scale-105 transition-transform">
+                💬 WhatsApp Us
+            </a>
+        </div>
+        <p class="text-gray-600 text-xs uppercase tracking-widest mt-8">© 2026 Lal Bhai Taxi Service. Ahmedabad, Gujarat.</p>
+    </footer>
 
     <div class="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
         <a href="https://wa.me/9925063614" target="_blank" class="w-16 h-16 btn-whatsapp rounded-full flex items-center justify-center shadow-2xl pulse-green hover:scale-110 transition-transform">
@@ -232,11 +275,8 @@
         </a>
     </div>
 
-    <footer class="bg-black py-16 px-6 text-center border-t border-white/5">
-        <p class="text-gray-600 text-xs uppercase tracking-widest">© 2026 Lal Bhai Taxi Service. Ahmedabad.</p>
-    </footer>
-
     <script>
+        // Estimator Logic
         function calculateFare() {
             const km = parseFloat(document.getElementById('manual-km').value);
             const resPrice = document.getElementById('res-price');
@@ -244,7 +284,7 @@
             const waBtn = document.getElementById('wa-dynamic-btn');
 
             if (!km || km <= 0) {
-                alert("Please enter KM");
+                alert("Please enter a valid distance in KM.");
                 return;
             }
 
@@ -252,13 +292,13 @@
             const basePrice = 1900;
             const extraPerKm = 12;
 
-            let total = (km <= baseKm) ? basePrice : basePrice + ((km - baseKm) * extraPerKm);
-            total = Math.round(total);
+            let totalFare = (km <= baseKm) ? basePrice : basePrice + ((km - baseKm) * extraPerKm);
+            totalFare = Math.round(totalFare);
 
-            resPrice.innerText = "₹" + total;
+            resPrice.innerText = "₹" + totalFare;
             resultDiv.classList.remove('hidden');
 
-            const message = encodeURIComponent(`Hi Lal Bhai Taxi, I want to book a ride for ${km} KM. Fare: ₹${total}.`);
+            const message = encodeURIComponent(`Hi Lal Bhai Taxi, I want to book a ride. My estimated distance is ${km} KM and price is ₹${totalFare}.`);
             waBtn.href = `https://wa.me/9925063614?text=${message}`;
             
             resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -280,15 +320,16 @@
             const carDesc = document.getElementById('car-desc');
 
             if (num > 4) {
-                carName.innerText = "Premium SUV";
-                carDesc.innerText = "Spacious 7-seater for large groups.";
+                carName.innerText = "Executive SUV";
+                carDesc.innerText = "Spacious vehicle perfect for families and heavy luggage.";
             } else if (tripType === 'outstation') {
                 carName.innerText = "Comfort Sedan";
-                carDesc.innerText = "Best for highway and long trips.";
+                carDesc.innerText = "Smooth ride for highway travel and long trips.";
             } else {
                 carName.innerText = "Economy Hatchback";
-                carDesc.innerText = "Perfect for city traffic.";
+                carDesc.innerText = "Perfect for navigating city traffic and short trips.";
             }
+            result.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
         function goBack(step) {
@@ -299,7 +340,21 @@
         function resetAssistant() {
             document.getElementById('result').classList.add('hidden');
             document.getElementById('step1').classList.remove('hidden');
+            tripType = '';
         }
+
+        // Global Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const id = this.getAttribute('href');
+                if(id === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(id);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
     </script>
 </body>
 </html>
